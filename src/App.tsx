@@ -1,3 +1,10 @@
+import BudgetCalculatorPage from "./features/budget-calculator/BudgetCalculatorPage";
+
+
 export default function App() {
-  return <div>Budget App</div>;
+  return (
+    <main>
+      <BudgetCalculatorPage />
+    </main>
+  );
 }
