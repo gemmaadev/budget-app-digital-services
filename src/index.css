@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+@theme {
+  --color-brand-green: #3b8e5a;
+}

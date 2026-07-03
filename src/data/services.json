@@ -1,21 +1,21 @@
 [
   {
     "id": "seo",
-    "name": "SEO",
+    "name": "Seo",
     "description": "Optimització en buscadors i millora del posicionament orgànic",
     "price": 300,
     "configurable": false
   },
   {
     "id": "ads",
-    "name": "ADS",
+    "name": "Ads",
     "description": "Gestió i optimització de campanyes de publicitat de pagament",
     "price": 400,
     "configurable": false
   },
   {
     "id": "web",
-    "name": "WEB",
+    "name": "Web",
     "description": "Disseny i programació d'una web responsive completa",
     "price": 500,
     "configurable": true
