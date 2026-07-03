@@ -6,7 +6,12 @@ export default function BudgetCalculatorPage() {
     <section>
       <div className="mx-auto max-w-2xl px-6 flex flex-col gap-4 py-10">
         {services.map((service) => (
-          <ServiceCard key={service.id} service={service} />
+          <ServiceCard
+            key={service.id}
+            service={service}
+            isSelected={false}
+            onToggle={() => {}}
+          />
         ))}
       </div>
     </section>

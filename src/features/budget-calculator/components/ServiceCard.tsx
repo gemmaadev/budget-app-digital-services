@@ -6,11 +6,19 @@ import type { Service } from "@/features/budget-calculator/types/service";
 
 interface ServiceCardProps {
   service: Service;
+  isSelected: boolean;
+  onToggle: (id: string) => void;
 }
 
-export function ServiceCard({ service }: ServiceCardProps) {
+export function ServiceCard({
+  service,
+  isSelected,
+  onToggle,
+}: ServiceCardProps) {
   return (
-    <article className="flex flex-col md:flex-row md:items-center md:justify-between border border-gray-100 rounded-lg p-8 shadow-sm gap-2 md:gap-9">
+    <article
+      className={`flex flex-col md:flex-row md:items-center md:justify-between border rounded-lg p-8 shadow-sm gap-2 md:gap-9 ${isSelected ? "border-2 border-brand-green" : "border-gray-100"}`}
+    >
       <div className="flex flex-col gap-1 flex-1 pr-4">
         <h3 className="font-bold text-lg">{service.name}</h3>
         <p className="text-sm">{service.description}</p>
@@ -24,6 +32,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
           <input
             type="checkbox"
             className="w-5 h-5 cursor-pointer accent-brand-green"
+            onChange={() => onToggle(service.id)}
           />
           <span className="hidden md:inline text-sm">Afegir</span>
         </label>
