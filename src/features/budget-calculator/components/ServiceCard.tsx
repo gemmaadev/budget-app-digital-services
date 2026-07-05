@@ -49,7 +49,14 @@ export function ServiceCard({
         </label>
       </div>
 
-      {service.configurable && <WebConfigurator pages={1} languages={3} />}
+      {service.configurable && isSelected && (
+        <WebConfigurator
+          pages={1}
+          languages={3}
+          onPagesChange={() => {}}
+          onLanguagesChange={() => {}}
+        />
+      )}
     </article>
   );
 }

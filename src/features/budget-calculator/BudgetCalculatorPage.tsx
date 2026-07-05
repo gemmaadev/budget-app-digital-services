@@ -9,7 +9,7 @@ export default function BudgetCalculatorPage() {
           <ServiceCard
             key={service.id}
             service={service}
-            isSelected={false}
+            isSelected={true}
             onToggle={() => {}}
           />
         ))}
