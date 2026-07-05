@@ -9,12 +9,16 @@ interface ServiceCardProps {
   service: Service;
   isSelected: boolean;
   onToggle: (id: string) => void;
+  webConfig: { pages: number; languages: number };
+  onWebConfigChange: (pages: number, languages: number) => void;
 }
 
 export function ServiceCard({
   service,
   isSelected,
   onToggle,
+  webConfig,
+  onWebConfigChange,
 }: ServiceCardProps) {
   return (
     <article
@@ -51,10 +55,14 @@ export function ServiceCard({
 
       {service.configurable && isSelected && (
         <WebConfigurator
-          pages={1}
-          languages={3}
-          onPagesChange={() => {}}
-          onLanguagesChange={() => {}}
+          pages={webConfig.pages}
+          languages={webConfig.languages}
+          onPagesChange={(value) =>
+            onWebConfigChange(value, webConfig.languages)
+          }
+          onLanguagesChange={(value) =>
+            onWebConfigChange(webConfig.pages, value)
+          }
         />
       )}
     </article>
