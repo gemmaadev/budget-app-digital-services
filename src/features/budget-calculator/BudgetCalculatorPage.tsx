@@ -31,7 +31,7 @@ export default function BudgetCalculatorPage() {
       </section>
 
       <section>
-        <ClientForm />
+        <ClientForm onSubmit={(clientData) => console.log(clientData)} />
       </section>
     </div>
   );

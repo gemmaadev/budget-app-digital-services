@@ -2,5 +2,14 @@
 
 @theme {
   --color-brand-green: #4db88a;
+  --color-brand-dark-green: #2f6e53;
   --color-total-price: #f3f3f8;
+}
+
+@layer base {
+  :focus-visible {
+    outline: 3px solid var(--color-brand-green);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
 }
