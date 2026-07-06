@@ -44,6 +44,7 @@ export function ServiceCard({
         <label className="flex items-center gap-2 cursor-pointer shrink-0">
           <input
             type="checkbox"
+            checked={isSelected}
             className="w-5 h-5 cursor-pointer accent-brand-green"
             onChange={() => onToggle(service.id)}
           />
