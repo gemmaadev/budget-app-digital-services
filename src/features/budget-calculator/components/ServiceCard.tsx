@@ -49,7 +49,7 @@ export function ServiceCard({
           />
           <span className="hidden md:inline text-sm">
             {isSelected ? "Afegit" : "Afegir"}
-          </span>{" "}
+          </span>
         </label>
       </div>
 
