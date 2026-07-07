@@ -41,11 +41,11 @@ export function ServiceCard({
         </span>
 
         {/* Dreta: checkbox */}
-        <label className="flex items-center gap-2 cursor-pointer shrink-0">
+        <label className="flex items-center gap-2 shrink-0">
           <input
             type="checkbox"
             checked={isSelected}
-            className="w-5 h-5 cursor-pointer accent-brand-green"
+            className="w-5 h-5 accent-brand-green"
             onChange={() => onToggle(service.id)}
           />
           <span className="hidden md:inline text-sm">
