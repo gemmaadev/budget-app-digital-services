@@ -1,6 +1,9 @@
 import { ServiceCard } from "./components/ServiceCard";
 import { BudgetSummary } from "./components/BudgetSummary";
 import { useBudgetCalculator } from "./hooks/useBudgetCalculator";
+import { useBudgetForm } from "@/features/budget-form/hooks/useBudgetForm";
+import { ClientForm } from "@/features/budget-form/components/ClientForm";
+
 import services from "@/data/services.json";
 
 export default function BudgetCalculatorPage() {
@@ -10,11 +13,19 @@ export default function BudgetCalculatorPage() {
     totalPrice,
     handleToggleService,
     handleWebConfigChange,
+    onReset,
   } = useBudgetCalculator();
 
+  const { handleBudgetSubmit } = useBudgetForm(
+    selectedServices,
+    webConfig,
+    totalPrice,
+    onReset,
+  );
+
   return (
-    <section className="mx-auto max-w-2xl px-6 flex flex-col gap-2 py-10">
-      <div className="flex flex-col gap-4 py-10">
+    <div className="mx-auto max-w-6xl px-6 flex flex-col gap-2 py-10">
+      <section className="flex flex-col gap-5 py-10">
         {services.map((service) => (
           <ServiceCard
             key={service.id}
@@ -25,8 +36,12 @@ export default function BudgetCalculatorPage() {
             onWebConfigChange={handleWebConfigChange}
           />
         ))}
-      </div>
-      <BudgetSummary totalPrice={totalPrice} />
-    </section>
+        <BudgetSummary totalPrice={totalPrice} />
+      </section>
+
+      <section>
+        <ClientForm onSubmit={handleBudgetSubmit} />
+      </section>
+    </div>
   );
 }

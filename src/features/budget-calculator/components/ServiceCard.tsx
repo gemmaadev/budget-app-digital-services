@@ -22,9 +22,9 @@ export function ServiceCard({
 }: ServiceCardProps) {
   return (
     <article
-      className={`flex flex-col rounded-lg p-6 shadow-sm ${isSelected ? "border-2 border-brand-green" : "border border-gray-100"}`}
+      className={`flex flex-col rounded-lg px-8 py-11 shadow-sm ${isSelected ? "border-2 border-brand-green" : "border border-gray-100"}`}
     >
-      <div className="flex items-center justify-between gap-6">
+      <div className="flex items-center justify-between gap-5 md:gap-20">
         {/* Esquerra: nom + descripció + preu (mobile) */}
         <div className="flex flex-col gap-1 flex-1">
           <h3 className="font-bold text-lg">{service.name}</h3>
@@ -36,7 +36,7 @@ export function ServiceCard({
         </div>
 
         {/* Centre: preu visible només en desktop */}
-        <span className="hidden md:block font-bold text-2xl mx-8">
+        <span className="hidden md:block font-bold text-2xl">
           {service.price} <span className="text-base font-medium">€</span>
         </span>
 
@@ -44,12 +44,13 @@ export function ServiceCard({
         <label className="flex items-center gap-2 cursor-pointer shrink-0">
           <input
             type="checkbox"
+            checked={isSelected}
             className="w-5 h-5 cursor-pointer accent-brand-green"
             onChange={() => onToggle(service.id)}
           />
           <span className="hidden md:inline text-sm">
             {isSelected ? "Afegit" : "Afegir"}
-          </span>{" "}
+          </span>
         </label>
       </div>
 

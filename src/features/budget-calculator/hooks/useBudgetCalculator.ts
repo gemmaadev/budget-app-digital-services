@@ -40,6 +40,11 @@ export function useBudgetCalculator() {
       return total + service.price;
     }, 0);
 
+  const onReset = () => {
+    setSelectedServices(new Set());
+    setWebConfig({ pages: 1, languages: 1 });
+  };
+
   // Retornar: selectedServices, webConfig, totalPrice, handleToggleService, handleWebConfigChange
   return {
     selectedServices,
@@ -47,5 +52,6 @@ export function useBudgetCalculator() {
     totalPrice,
     handleToggleService,
     handleWebConfigChange,
+    onReset,
   };
 }
