@@ -14,31 +14,19 @@ export function SearchAndSort({
   onSearch,
   onSort,
 }: SearchAndSortProps) {
-  const [isSearchVisible, setIsSearchVisible] = useState(false);
   const [isSortVisible, setIsSortVisible] = useState(false);
 
   return (
     <div className="flex flex-col gap-8 pb-6 md:flex-row md:justify-end">
-      <div className="flex justify-end gap-4">
-        <button
-          type="button"
-          onClick={() => setIsSearchVisible(!isSearchVisible)}
-        >
-          <Search className="w-7 h-7 md:w-5 md:h-5" />
-        </button>
-
-        {isSearchVisible && (
-          <input
-            type="search"
-            value={searchTerm}
-            onChange={onSearch}
-            placeholder="Cerca..."
-            className="border rounded-lg px-3 py-1 focus:outline-none"
-            autoFocus
-          />
-        )}
-
-        {/* visible només en mòbil */}
+      <div className="flex justify-end gap-4 items-center">
+        <Search className="w-7 h-7 md:w-5 md:h-5" />
+        <input
+          type="search"
+          value={searchTerm}
+          onChange={onSearch}
+          placeholder="Cerca..."
+          className="border rounded-lg px-3 py-1 focus:outline-none"
+        />
         <button
           type="button"
           className="md:hidden"
