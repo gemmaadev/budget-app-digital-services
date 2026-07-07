@@ -18,7 +18,7 @@ export function SearchAndSort({
   const [isSortVisible, setIsSortVisible] = useState(false);
 
   return (
-    <div className="flex flex-col gap-8 md:flex-row md:justify-end">
+    <div className="flex flex-col gap-8 pb-6 md:flex-row md:justify-end">
       <div className="flex justify-end gap-4">
         <button
           type="button"

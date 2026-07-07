@@ -1,4 +1,5 @@
 import { SearchAndSort } from "./components/SearchAndSort";
+import { BudgetCard } from "./components/BudgetCard";
 
 export function BudgetHistorySection() {
   return (
@@ -9,6 +10,9 @@ export function BudgetHistorySection() {
         onSearch={() => {}}
         onSort={() => {}}
       />
+      <section>
+        <BudgetCard />
+      </section>
     </div>
   );
 }
