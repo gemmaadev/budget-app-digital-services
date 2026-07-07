@@ -2,7 +2,7 @@ import { Search } from "lucide-react";
 
 export function SearchAndSort() {
   return (
-    <div className="flex justify-end gap-7">
+    <div className="flex justify-end gap-8 text-lg md:text-base">
       <button type="button">
         <Search className="w-4 h-4" />
       </button>
