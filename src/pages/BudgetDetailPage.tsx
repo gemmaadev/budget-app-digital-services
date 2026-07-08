@@ -1,3 +1,9 @@
+import { BudgetDetailHeader } from "@/features/budget-share/components/BudgetDetailHeader";
+
 export default function BudgetDetailPage() {
-  return <div>Hola</div>;
+  return (
+    <div>
+      <BudgetDetailHeader />
+    </div>
+  );
 }
