@@ -1,5 +1,6 @@
 import { BudgetDetailHeader } from "@/features/budget-share/components/BudgetDetailHeader";
 import { BudgetDetailSummary } from "@/features/budget-share/components/BudgetDetailSummary";
+import { BudgetDetailTerms } from "@/features/budget-share/components/BudgetDetailTerms";
 import { BudgetCard } from "@/features/budget-history/components/BudgetCard";
 import type { Budget } from "@/shared/types/budget";
 
@@ -18,6 +19,7 @@ export default function BudgetDetailPage() {
       <BudgetDetailHeader budget={mockBudget} />
       <BudgetCard budget={mockBudget} showLink={false} />
       <BudgetDetailSummary budget={mockBudget} />
+      <BudgetDetailTerms />
     </div>
   );
 }
