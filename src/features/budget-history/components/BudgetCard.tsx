@@ -1,4 +1,7 @@
+import { Link } from "react-router-dom";
 import type { Budget } from "@/shared/types/budget";
+import { encodeBudget } from "@/shared/utils/encodeBudget";
+
 interface BudgetCardProps {
   budget: Budget;
 }
@@ -37,12 +40,12 @@ export function BudgetCard({ budget }: BudgetCardProps) {
             <span className="text-base font-medium">€</span>
           </span>
 
-          <a
-            href={`/budgets?data=${budget.id}`}
+          <Link
+            to={`/budgets?data=${encodeBudget(budget)}`}
             className="text-3xl text-brand-green text-end"
           >
             →
-          </a>
+          </Link>
         </div>
       </div>
     </article>
