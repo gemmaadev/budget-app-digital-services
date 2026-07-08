@@ -1,4 +1,4 @@
-import type { Budget } from "@/features/budget-form/types/budget";
+import type { Budget } from "@/features/budget-share/types/budget";
 interface BudgetCardProps {
   budget: Budget;
 }
@@ -18,7 +18,12 @@ export function BudgetCard({ budget }: BudgetCardProps) {
           <h3 className="font-bold text-md">Serveis contractats:</h3>
           <ul>
             {budget.services.map((service) => (
-              <li key={service}>• {service}</li>
+              <li key={service}>
+                •
+                {service === "web" && budget.webConfig
+                  ? `Web (${budget.webConfig.pages} pàgines, ${budget.webConfig.languages} llenguatges)`
+                  : service}
+              </li>
             ))}
           </ul>
         </div>

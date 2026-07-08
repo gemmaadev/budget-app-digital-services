@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { Budget } from "@/features/budget-form/types/budget";
+import type { Budget } from "@/features/budget-share/types/budget";
 
 export function useBudgetHistory() {
   // Gestionar estat de cerca: searchTerm: string

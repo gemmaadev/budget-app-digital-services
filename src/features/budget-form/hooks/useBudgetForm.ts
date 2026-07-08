@@ -1,4 +1,4 @@
-import type { ClientData, Budget } from "@/features/budget-form/types/budget";
+import type { ClientData, Budget } from "@/features/budget-share/types/budget";
 
 // El hook rep com a paràmetres: selectedServices, webConfig, totalPrice i onReset (per netejar la selecció de serveis)
 export function useBudgetForm(

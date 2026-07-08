@@ -38,7 +38,7 @@ export function SearchAndSort({
 
       {/* botons ocults en mòbil fins que es clica SlidersHorizontal */}
       <div
-        className={`justify-end gap-8 text-lg md:flex ${isSortVisible ? "flex" : "hidden"}`}
+        className={`justify-end gap-8 text-md md:flex ${isSortVisible ? "flex" : "hidden"}`}
       >
         <button
           onClick={() => onSort("date")}
