@@ -1,4 +1,4 @@
-import type { Budget } from "@/features/budget-share/types/budget";
+import type { Budget } from "@/shared/types/budget";
 interface BudgetCardProps {
   budget: Budget;
 }
@@ -32,7 +32,10 @@ export function BudgetCard({ budget }: BudgetCardProps) {
       <div className="flex flex-col gap-1 flex-1">
         <div className="flex flex-col gap-2">
           <p className="text-sm">Total</p>
-          <span className="font-bold text-3xl">{budget.total}€</span>
+          <span className="font-bold text-3xl">
+            {budget.total}
+            <span className="text-base font-medium">€</span>
+          </span>
 
           <a
             href={`/budgets?data=${budget.id}`}
