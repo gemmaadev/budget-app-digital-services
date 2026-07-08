@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { ClientData } from "@/features/budget-form/types/budget";
+import type { ClientData } from "@/features/budget-share/types/budget";
 import { FormField } from "./FormField";
 
 interface ClientFormProps {
@@ -82,7 +82,7 @@ export function ClientForm({ onSubmit }: ClientFormProps) {
         />
         <button
           type="submit"
-          className="rounded-lg text-white py-4 px-2 md:py-3 md:px-11 w-full whitespace-nowrap bg-brand-green cursor-pointer active:opacity-80 lg:self-start"
+          className="rounded-lg text-white py-4 px-2 md:py-3 md:px-11 w-full whitespace-nowrap bg-brand-green active:opacity-80 lg:self-start"
         >
           Sol·licitar pressupost
         </button>

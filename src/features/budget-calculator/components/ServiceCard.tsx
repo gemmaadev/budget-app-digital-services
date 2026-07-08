@@ -24,24 +24,21 @@ export function ServiceCard({
     <article
       className={`flex flex-col rounded-lg px-8 py-11 shadow-sm ${isSelected ? "border-2 border-brand-green" : "border border-gray-100"}`}
     >
-      <div className="flex items-center justify-between gap-5 md:gap-20">
-        {/* Esquerra: nom + descripció + preu (mobile) */}
-        <div className="flex flex-col gap-1 flex-1">
-          <h3 className="font-bold text-lg">{service.name}</h3>
-          <p className="text-sm">{service.description}</p>
-          {/* Preu visible només en mòbil */}
-          <span className="font-bold text-2xl md:hidden">
+      <div className="flex items-center justify-between gap-8">
+        <div className="flex flex-col md:flex-row md:items-center w-full gap-2">
+          {/* Esquerra: nom + descripció + preu (mobile) */}
+          <div className="flex flex-col gap-1 flex-1">
+            <h3 className="font-bold text-lg">{service.name}</h3>
+            <p className="text-sm">{service.description}</p>
+          </div>
+
+          {/* Centre: preu visible només en desktop */}
+          <span className="font-bold text-2xl whitespace-nowrap md:text-center md:flex-1">
             {service.price} <span className="text-base font-medium">€</span>
           </span>
         </div>
-
-        {/* Centre: preu visible només en desktop */}
-        <span className="hidden md:block font-bold text-2xl">
-          {service.price} <span className="text-base font-medium">€</span>
-        </span>
-
         {/* Dreta: checkbox */}
-        <label className="flex items-center gap-2 cursor-pointer shrink-0">
+        <label className="flex items-center gap-2 cursor-pointer ">
           <input
             type="checkbox"
             checked={isSelected}

@@ -6,7 +6,7 @@ import { ClientForm } from "@/features/budget-form/components/ClientForm";
 
 import services from "@/data/services.json";
 
-export default function BudgetCalculatorPage() {
+export default function BudgetCalculatorSection() {
   const {
     selectedServices,
     webConfig,
@@ -41,6 +41,7 @@ export default function BudgetCalculatorPage() {
 
       <section>
         <ClientForm onSubmit={handleBudgetSubmit} />
+        {/* //ClientForm s'integra dins de BudgetCalculatorSection perquè necessita dades de useBudgetCalculator — selectedServices, webConfig i totalPrice — per crear el pressupost. */}
       </section>
     </div>
   );

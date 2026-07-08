@@ -6,7 +6,7 @@ interface FormFieldProps {
   value: string;
   error: string;
   showError: boolean;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur: () => void;
 }
 
