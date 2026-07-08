@@ -1,4 +1,5 @@
 import { BudgetDetailHeader } from "@/features/budget-share/components/BudgetDetailHeader";
+import { BudgetDetailSummary } from "@/features/budget-share/components/BudgetDetailSummary";
 import { BudgetCard } from "@/features/budget-history/components/BudgetCard";
 import type { Budget } from "@/shared/types/budget";
 
@@ -16,6 +17,7 @@ export default function BudgetDetailPage() {
     <div className="mx-auto max-w-6xl px-10 flex flex-col gap-11 py-10">
       <BudgetDetailHeader budget={mockBudget} />
       <BudgetCard budget={mockBudget} showLink={false} />
+      <BudgetDetailSummary budget={mockBudget} />
     </div>
   );
 }

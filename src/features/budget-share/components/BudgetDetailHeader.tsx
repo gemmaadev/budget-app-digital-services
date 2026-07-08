@@ -15,7 +15,7 @@ export function BudgetDetailHeader({ budget }: BudgetDetailHeaderProps) {
 
       <button
         type="submit"
-        className="rounded-lg text-white whitespace-nowrap bg-brand-green active:opacity-80 px-4 py-1"
+        className="rounded-lg text-white whitespace-nowrap bg-brand-green active:opacity-80 px-4 md:py-1"
       >
         Descarregar PDF
       </button>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import services from "@/data/services.json";
+import { calculateWebPrice } from "@/shared/utils";
 
 export function useBudgetCalculator() {
   // Gestionar estat dels serveis seleccionats: selectedServices: string[]
@@ -28,7 +29,7 @@ export function useBudgetCalculator() {
   };
 
   // Implementar fórmula del servei Web: (pages + languages) * 30 + 500
-  const webPrice: number = (webConfig.pages + webConfig.languages) * 30 + 500;
+  const webPrice = calculateWebPrice(webConfig.pages, webConfig.languages);
 
   // Implementar càlcul del total: suma de tots els serveis seleccionats
   const totalPrice = services
