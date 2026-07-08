@@ -4,9 +4,10 @@ import { encodeBudget } from "@/shared/utils/encodeBudget";
 
 interface BudgetCardProps {
   budget: Budget;
+  showLink?: boolean;
 }
 
-export function BudgetCard({ budget }: BudgetCardProps) {
+export function BudgetCard({ budget, showLink = true }: BudgetCardProps) {
   return (
     <article className="flex bg-white flex-row rounded-lg px-8 py-10 shadow-sm border border-gray-100 gap-4 justify-between ">
       {/* Client */}
@@ -40,12 +41,14 @@ export function BudgetCard({ budget }: BudgetCardProps) {
             <span className="text-base font-medium">€</span>
           </span>
 
-          <Link
-            to={`/budgets?data=${encodeBudget(budget)}`}
-            className="text-3xl text-brand-green text-end"
-          >
-            →
-          </Link>
+          {showLink && (
+            <Link
+              to={`/budgets?data=${encodeBudget(budget)}`}
+              className="text-3xl text-brand-green text-end"
+            >
+              →
+            </Link>
+          )}
         </div>
       </div>
     </article>
