@@ -1,9 +1,14 @@
 import type { Budget } from "@/shared/types/budget";
+
 interface BudgetDetailHeaderProps {
   budget: Budget;
+  onExportPDF: () => void;
 }
 
-export function BudgetDetailHeader({ budget }: BudgetDetailHeaderProps) {
+export function BudgetDetailHeader({
+  budget,
+  onExportPDF,
+}: BudgetDetailHeaderProps) {
   const formattedDate = new Date(budget.date).toLocaleDateString("ca-ES");
 
   return (
@@ -15,6 +20,7 @@ export function BudgetDetailHeader({ budget }: BudgetDetailHeaderProps) {
       <button
         type="submit"
         className="rounded-lg text-white whitespace-nowrap bg-brand-green active:opacity-80 px-4 md:py-1"
+        onClick={onExportPDF}
       >
         Descarregar PDF
       </button>
