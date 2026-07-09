@@ -8,6 +8,7 @@ export function BudgetHistorySection() {
 
   return (
     <div className="mx-auto max-w-6xl px-6 flex flex-col gap-7 py-10 md:gap-2">
+      <hr className="border-t-2 border-dashed border-gray-300 pb-8" />
       <h2 className="text-2xl font-bold">Pressupostos en curs:</h2>
       <SearchAndSort
         searchTerm={searchTerm}

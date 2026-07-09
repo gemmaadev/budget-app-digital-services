@@ -1,4 +1,4 @@
-import type { Budget } from "../types/budget";
+import type { Budget } from "@/shared/types/budget";
 
 // La URL compartible tindrà format: /budgets?code=eyJpZCI6...
 
