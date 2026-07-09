@@ -1,9 +1,13 @@
-import type { Budget } from "@/features/budget-share/types/budget";
+import { Link } from "react-router-dom";
+import type { Budget } from "@/shared/types/budget";
+import { encodeBudget } from "@/shared/utils/encodeBudget";
+
 interface BudgetCardProps {
   budget: Budget;
+  showLink?: boolean;
 }
 
-export function BudgetCard({ budget }: BudgetCardProps) {
+export function BudgetCard({ budget, showLink = true }: BudgetCardProps) {
   return (
     <article className="flex bg-white flex-row rounded-lg px-8 py-10 shadow-sm border border-gray-100 gap-4 justify-between ">
       {/* Client */}
@@ -32,14 +36,19 @@ export function BudgetCard({ budget }: BudgetCardProps) {
       <div className="flex flex-col gap-1 flex-1">
         <div className="flex flex-col gap-2">
           <p className="text-sm">Total</p>
-          <span className="font-bold text-3xl">{budget.total}€</span>
+          <span className="font-bold text-3xl">
+            {budget.total}
+            <span className="text-base font-medium">€</span>
+          </span>
 
-          <a
-            href={`/budgets?data=${budget.id}`}
-            className="text-3xl text-brand-green text-end"
-          >
-            →
-          </a>
+          {showLink && (
+            <Link
+              to={`/budgets?data=${encodeBudget(budget)}`}
+              className="text-3xl text-brand-green text-end"
+            >
+              →
+            </Link>
+          )}
         </div>
       </div>
     </article>
