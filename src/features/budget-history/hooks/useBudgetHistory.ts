@@ -7,6 +7,9 @@ export function useBudgetHistory() {
   // Only three possible values: 'date' | 'total' | 'name'
   const [sortBy, setSortBy] = useState<"date" | "total" | "name">("date");
 
+  // NOTE: budgets are read directly from localStorage on every render.
+  // This means new budgets appear after the component re-mounts (e.g. page refresh).
+  // A global state solution (Context API or Zustand) would solve this in a future iteration.
   const budgets: Budget[] = JSON.parse(localStorage.getItem("budgets") ?? "[]");
 
   const filteredBudgets = budgets

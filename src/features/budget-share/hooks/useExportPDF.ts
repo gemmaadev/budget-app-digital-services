@@ -3,6 +3,12 @@ import type { Budget } from "@/shared/types";
 import services from "@/data/services.json";
 import { calculateWebPrice } from "@/shared/utils";
 
+// NOTE: Currently using jsPDF with manual coordinates.
+// @react-pdf/renderer was considered but not used because:
+// - It does not support Tailwind CSS classes
+// - It would require duplicating the BudgetDetailPage structure with PDF-specific components
+// A future iteration could implement this with a dedicated PDF layout.
+
 export function useExportPDF(budget: Budget) {
   const handleExportPDF = () => {
     const documentPdf = new jsPDF();
