@@ -1,7 +1,7 @@
 import { renderHook, act } from "@testing-library/react";
 import { describe, it, expect, beforeEach } from "vitest";
 import { useBudgetHistory } from "@/features/budget-history/hooks/useBudgetHistory";
-import type { Budget } from "@/shared/types/budget";
+import type { Budget } from "@/shared/types";
 
 const mockBudgetJoan: Budget = {
   id: "1",
@@ -24,10 +24,10 @@ describe("useBudgetHistory", () => {
     localStorage.clear();
   });
 
-  //   Scenario: Cercar per nom
-  //     Given hi ha pressupostos de "Joan" i "Ona"
-  //     When l'usuari cerca "Joan"
-  //     Then només es mostra el pressupost de "Joan"
+  // Scenario: Filter by client name
+  // Given there are budgets for "Joan" and "Ona"
+  // When the user searches for "Joan"
+  // Then only Joan's budget is shown
   it("filters budgets by client name", () => {
     localStorage.setItem(
       "budgets",
@@ -45,10 +45,10 @@ describe("useBudgetHistory", () => {
     expect(result.current.filteredBudgets[0].client.name).toBe("Joan");
   });
 
-  //   Scenario: Ordenar per import descendent
-  //     Given hi ha pressupostos de 300€ i 700€
-  //     When l'usuari ordena per Import
-  //     Then el pressupost de 700€ apareix primer
+  // Scenario: Sort by total descending
+  // Given there are budgets of 300€ and 700€
+  // When the user sorts by Import
+  // Then the 700€ budget appears first
   it("sorts budgets by total descending", () => {
     localStorage.setItem(
       "budgets",
@@ -63,9 +63,9 @@ describe("useBudgetHistory", () => {
     expect(result.current.filteredBudgets[0].total).toBe(700);
   });
 
-  //   Scenario: Llista buida
-  //     Given no hi ha pressupostos guardats
-  //     Then es mostra el missatge "No hi ha pressupostos"
+  // Scenario: Empty list
+  // Given no budgets are saved
+  // Then an empty array is returned
   it("returns empty array when no budgets saved", () => {
     const { result } = renderHook(() => useBudgetHistory());
     expect(result.current.filteredBudgets).toHaveLength(0);

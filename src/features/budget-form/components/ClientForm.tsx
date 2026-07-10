@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { ClientData } from "@/shared/types/budget";
+import type { ClientData } from "@/shared/types";
 import { FormField } from "./FormField";
 
 interface ClientFormProps {

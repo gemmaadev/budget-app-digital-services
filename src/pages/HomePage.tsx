@@ -11,11 +11,11 @@ export default function HomePage() {
           className="h-10"
         />
       </nav>
-      <header className="flex flex-col bg-[url('/src/assets/images/header.image.png')] bg-cover bg-center h-70 items-center justify-center gap-3">
+      <header className="flex flex-col bg-[url('/src/assets/images/header-image.png')] bg-cover bg-center h-70 items-center justify-center gap-3">
         <h1 className="font-bold text-4xl text-center">
           Aconsegueix la millor qualitat
         </h1>
-        <p>Serveis digitials adaptats al teu negoci</p>
+        <p>Serveis digitals adaptats al teu negoci</p>
       </header>
       <main>
         <BudgetCalculatorSection />

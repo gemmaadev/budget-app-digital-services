@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import type { Budget } from "@/shared/types/budget";
-import { encodeBudget } from "@/shared/utils/encodeBudget";
+import type { Budget } from "@/shared/types";
+import { encodeBudget } from "@/shared";
 
 interface BudgetCardProps {
   budget: Budget;
@@ -10,14 +10,15 @@ interface BudgetCardProps {
 export function BudgetCard({ budget, showLink = true }: BudgetCardProps) {
   return (
     <article className="flex bg-white flex-row rounded-lg px-8 py-10 shadow-sm border border-gray-100 gap-4 justify-between ">
-      {/* Client */}
+      {/* Client info */}
       <div className="flex flex-col gap-3 md:flex-row justify-between w-full">
         <div className="flex flex-col gap-1 flex-1">
           <h3 className="font-bold text-2xl">{budget.client.name}</h3>
           <p className="text-sm">{budget.client.email}</p>
           <p className="text-sm">{budget.client.phone}</p>
         </div>
-        {/* Serveis */}
+
+        {/* Services */}
         <div className="flex flex-col gap-1 flex-1">
           <h3 className="font-bold text-md">Serveis contractats:</h3>
           <ul>
@@ -32,6 +33,7 @@ export function BudgetCard({ budget, showLink = true }: BudgetCardProps) {
           </ul>
         </div>
       </div>
+
       {/* Total */}
       <div className="flex flex-col gap-1 flex-1">
         <div className="flex flex-col gap-2">

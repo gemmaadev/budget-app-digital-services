@@ -1,5 +1,5 @@
 import services from "@/data/services.json";
-import type { Budget } from "@/shared/types/budget";
+import type { Budget } from "@/shared/types";
 import { calculateWebPrice } from "@/shared/utils";
 
 interface BudgetDetailSummaryProps {

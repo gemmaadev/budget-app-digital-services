@@ -1,7 +1,3 @@
-// Maquetar l'estructura HTML semàntica: nom, descripció, preu i checkbox "Afegir"
-// Aplicar estils: card amb border, layout en fila (nom+descripció | preu | checkbox)
-// Aplicar estil visual quan la card és seleccionada (borde verd com al mockup)
-
 import type { Service } from "@/features/budget-calculator/types/service";
 import { WebConfigurator } from "./WebConfigurator";
 
@@ -26,18 +22,19 @@ export function ServiceCard({
     >
       <div className="flex items-center justify-between gap-8">
         <div className="flex flex-col md:flex-row md:items-center w-full gap-2">
-          {/* Esquerra: nom + descripció + preu (mobile) */}
+          {/* Name and description */}
           <div className="flex flex-col gap-1 flex-1">
             <h3 className="font-bold text-lg">{service.name}</h3>
             <p className="text-sm">{service.description}</p>
           </div>
 
-          {/* Centre: preu visible només en desktop */}
+          {/* Price */}
           <span className="font-bold text-2xl whitespace-nowrap md:text-center md:flex-1">
             {service.price} <span className="text-base font-medium">€</span>
           </span>
         </div>
-        {/* Dreta: checkbox */}
+
+        {/* Checkbox */}
         <label className="flex items-center gap-2 cursor-pointer ">
           <input
             type="checkbox"

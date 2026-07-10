@@ -1,4 +1,4 @@
-import type { Budget } from "@/shared/types/budget";
+import type { Budget } from "@/shared/types";
 
 interface BudgetDetailHeaderProps {
   budget: Budget;
@@ -18,7 +18,7 @@ export function BudgetDetailHeader({
         <p>Creat el {formattedDate}</p>
       </div>
       <button
-        type="submit"
+        type="button"
         className="rounded-lg text-white whitespace-nowrap bg-brand-green active:opacity-80 px-4 md:py-1"
         onClick={onExportPDF}
       >

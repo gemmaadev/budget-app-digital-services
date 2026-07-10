@@ -2,23 +2,20 @@ import { renderHook, act } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { useBudgetForm } from "@/features/budget-form/hooks/useBudgetForm";
 
-// Feature: Creació i persistència de pressupostos
-
 describe("useBudgetForm", () => {
   beforeEach(() => {
     localStorage.clear();
   });
-  //   Scenario: Guardar pressupost a localStorage
-  //     Given l'usuari ha seleccionat el servei SEO
-  //     And ha emplenat el formulari amb dades vàlides
-  //     When envia el formulari
-  //     Then localStorage conté un pressupost amb el servei SEO i total 300€
+
+  // Scenario: Save budget to localStorage
+  // Given the user has selected SEO and filled in valid form data
+  // When the form is submitted
+  // Then localStorage contains a budget with SEO service and total 300€
   it("save budget to localStorage with correct total", () => {
     const { result } = renderHook(() =>
       useBudgetForm(new Set(["seo"]), { pages: 1, languages: 1 }, 300, vi.fn()),
     );
 
-    // When — envia el formulari
     act(() => {
       result.current.handleBudgetSubmit({
         name: "Gemma",
@@ -27,21 +24,19 @@ describe("useBudgetForm", () => {
       });
     });
 
-    // Then — localStorage conté el pressupost
     const budgets = JSON.parse(localStorage.getItem("budgets") ?? "[]");
     expect(budgets[0].total).toBe(300);
   });
 
-  //   Scenario: El pressupost té ID únic i data
-  //     Given l'usuari ha emplenat el formulari correctament
-  //     When envia el formulari
-  //     Then el pressupost guardat té un id únic i una data en format ISO
+  // Scenario: Budget has unique ID and ISO date
+  // Given the user has filled in the form correctly
+  // When the form is submitted
+  // Then the saved budget has a unique id and an ISO format date
   it("saves budget with unique id and ISO date", () => {
     const { result } = renderHook(() =>
       useBudgetForm(new Set(["seo"]), { pages: 1, languages: 1 }, 300, vi.fn()),
     );
 
-    // When — envia el formulari
     act(() => {
       result.current.handleBudgetSubmit({
         name: "Gemma",
@@ -50,16 +45,15 @@ describe("useBudgetForm", () => {
       });
     });
 
-    //Then el pressupost guardat té un id únic i una data en format ISO
     const budgets = JSON.parse(localStorage.getItem("budgets") ?? "[]");
     expect(budgets[0].id).toBeDefined();
-    expect(budgets[0].date).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/); //regex comprova que la data comenci amb el format ISO
+    expect(budgets[0].date).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/); // regex checks that the date starts with ISO format
   });
 
-  //   Scenario: Reset després d'enviar
-  //     Given l'usuari ha seleccionat serveis i emplenat el formulari
-  //     When envia el formulari
-  //     Then onReset és cridat per netejar la selecció de serveis
+  // Scenario: Reset after submitting
+  // Given the user has selected services and filled in the form
+  // When the form is submitted
+  // Then onReset is called to clear the service selection
   it("calls onReset after submitting the form", () => {
     const onReset = vi.fn();
 
@@ -67,7 +61,6 @@ describe("useBudgetForm", () => {
       useBudgetForm(new Set(["seo"]), { pages: 1, languages: 1 }, 300, onReset),
     );
 
-    // When — envia el formulari
     act(() => {
       result.current.handleBudgetSubmit({
         name: "Gemma",
@@ -76,20 +69,18 @@ describe("useBudgetForm", () => {
       });
     });
 
-    //Then onReset és cridat per netejar la selecció de serveis
     expect(onReset).toHaveBeenCalled();
   });
 
-  //   Scenario: Múltiples pressupostos
-  //     Given ja existeix un pressupost a localStorage
-  //     When l'usuari envia un segon pressupost
-  //     Then localStorage conté els dos pressupostos
+  // Scenario: Multiple budgets
+  // Given a budget already exists in localStorage
+  // When the user submits a second budget
+  // Then localStorage contains both budgets
   it("saves multiple budgets to localStorage", () => {
     const { result } = renderHook(() =>
       useBudgetForm(new Set(["seo"]), { pages: 1, languages: 1 }, 300, vi.fn()),
     );
 
-    // When — envia el formulari primer cop
     act(() => {
       result.current.handleBudgetSubmit({
         name: "Gemma",
@@ -98,7 +89,6 @@ describe("useBudgetForm", () => {
       });
     });
 
-    // When — envia el formulari segon cop
     act(() => {
       result.current.handleBudgetSubmit({
         name: "Anna",

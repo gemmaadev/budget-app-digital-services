@@ -1,11 +1,11 @@
-import type { Budget } from "@/shared/types/budget";
+import type { Budget } from "@/shared/types";
 
-// La URL compartible tindrà format: /budgets?code=eyJpZCI6...
+// Shared URL format: /budgets?data=eyJpZCI6...
 
 export function encodeBudget(budget: Budget): string {
-  return btoa(JSON.stringify(budget)); //JSON.stringify convierte un objeto a string, btoa codifica de string a Base64
+  return btoa(JSON.stringify(budget));
 }
 
 export function decodeBudget(encoded: string): Budget {
-  return JSON.parse(atob(encoded)); //atob decodifica de Base64 a string, y JSON.parse convierte la string de vuelta a objeto
+  return JSON.parse(atob(encoded));
 }

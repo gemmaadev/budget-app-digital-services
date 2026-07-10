@@ -41,7 +41,7 @@ export default function BudgetCalculatorSection() {
 
       <section>
         <ClientForm onSubmit={handleBudgetSubmit} />
-        {/* //ClientForm s'integra dins de BudgetCalculatorSection perquè necessita dades de useBudgetCalculator — selectedServices, webConfig i totalPrice — per crear el pressupost. */}
+        {/* ClientForm lives here because it needs selectedServices, webConfig and totalPrice from useBudgetCalculator */}
       </section>
     </div>
   );

@@ -1,5 +1,5 @@
 import jsPDF from "jspdf";
-import type { Budget } from "@/shared/types/budget";
+import type { Budget } from "@/shared/types";
 import services from "@/data/services.json";
 import { calculateWebPrice } from "@/shared/utils";
 
@@ -8,12 +8,13 @@ export function useExportPDF(budget: Budget) {
     const documentPdf = new jsPDF();
     let y = 20;
 
-    // Títol
+    // Title
     documentPdf.setFontSize(20);
     documentPdf.setFont("helvetica", "bold");
     documentPdf.text("Detall del pressupost", 20, y);
     y += 8;
 
+    // Date
     documentPdf.setFontSize(11);
     documentPdf.setFont("helvetica", "normal");
     documentPdf.text(
@@ -33,7 +34,7 @@ export function useExportPDF(budget: Budget) {
     documentPdf.text(budget.client.phone, 20, y);
     y += 15;
 
-    // Serveis
+    // Services list
     documentPdf.setFont("helvetica", "bold");
     documentPdf.text("Serveis contractats:", 20, y);
     y += 7;
@@ -48,7 +49,7 @@ export function useExportPDF(budget: Budget) {
     });
     y += 5;
 
-    // Resum
+    // Summary
     documentPdf.setFont("helvetica", "bold");
     documentPdf.text("Resum", 20, y);
     y += 8;
@@ -80,7 +81,7 @@ export function useExportPDF(budget: Budget) {
     documentPdf.text(`${budget.total} €`, 170, y, { align: "right" });
     y += 15;
 
-    // Termes
+    // Terms
     documentPdf.setFont("helvetica", "bold");
     documentPdf.text("Termes i condicions", 20, y);
     y += 8;
