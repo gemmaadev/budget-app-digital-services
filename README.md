@@ -1,4 +1,5 @@
 <div align="center">
+<img src="./src/assets/logos/logo-frontender.png" alt="Frontender.itacademy Logo" width="500" />
 
 ### Budget App · Project 2 · IT Academy Barcelona
 
@@ -20,14 +21,14 @@ Generate, manage and share digital service budgets with real-time price calculat
 
 ### 📱 Mobile
 
-| Homepage | Budget detail |
-| -------- | ------------- |
+| Homepage                                       | Budget detail                                  |
+| ---------------------------------------------- | ---------------------------------------------- |
 | ![Mobile homepage](public/homepage-mobile.png) | ![Mobile detail](public/detailpage-mobile.png) |
 
 ### 🖥️ Desktop
 
-| Homepage | Budget detail |
-| -------- | ------------- |
+| Homepage                                      | Budget detail                                 |
+| --------------------------------------------- | --------------------------------------------- |
 | ![Desktop homepage](public/homepage-desk.png) | ![Desktop detail](public/detailpage-desk.png) |
 
 ---
@@ -118,12 +119,12 @@ npm run test:coverage
 
 ### Test coverage
 
-| Category | Coverage |
-| -------- | -------- |
-| Statements | 90.66% |
-| Branches | 88.88% |
-| Functions | 90.9% |
-| Lines | 90.76% |
+| Category   | Coverage |
+| ---------- | -------- |
+| Statements | 90.66%   |
+| Branches   | 88.88%   |
+| Functions  | 90.9%    |
+| Lines      | 90.76%   |
 
 _Tests written following Gherkin scenarios (Given / When / Then)._
 
@@ -241,4 +242,4 @@ App.tsx
 
 **Gemma Maeso** · [@gemmaadev](https://github.com/gemmaadev)
 
-Project developed as part of the **IT Academy** program by Barcelona Activa  
+Project developed as part of the **IT Academy** program by Barcelona Activa
