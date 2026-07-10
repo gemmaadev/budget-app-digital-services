@@ -10,19 +10,18 @@ export function useBudgetCalculator() {
   const [webConfig, setWebConfig] = useState({ pages: 1, languages: 1 });
 
   const handleToggleService = (id: string) => {
-    const newSelected = new Set(selectedServices);
-
-    if (selectedServices.has(id)) {
-      newSelected.delete(id);
-    } else {
-      newSelected.add(id);
-    }
-
-    setSelectedServices(newSelected);
+    setSelectedServices((prev) => {
+      const newSelected = new Set(prev);
+      if (prev.has(id)) {
+        newSelected.delete(id);
+      } else {
+        newSelected.add(id);
+      }
+      return newSelected;
+    });
   };
-
   const handleWebConfigChange = (pages: number, languages: number) => {
-    setWebConfig({ pages: pages, languages: languages });
+    setWebConfig((prev) => ({ ...prev, pages, languages }));
   };
 
   const webPrice = calculateWebPrice(webConfig.pages, webConfig.languages);

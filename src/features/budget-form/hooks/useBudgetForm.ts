@@ -12,7 +12,7 @@ export function useBudgetForm(
       date: new Date().toISOString(),
       client: clientData,
       services: Array.from(selectedServices),
-      webConfig: webConfig,
+      webConfig,
       total: totalPrice,
     };
 
