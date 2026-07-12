@@ -1,6 +1,6 @@
 export function BudgetDetailTerms() {
   return (
-    <section className="flex-col border border-gray-100 rounded-lg shadow-sm p-10">
+    <section className="flex flex-col border border-gray-100 rounded-lg shadow-sm p-10">
       <div className="flex flex-col gap-4">
         <h2 className="font-bold text-xl">Termes i condicions</h2>
         <ul className="flex flex-col gap-2">

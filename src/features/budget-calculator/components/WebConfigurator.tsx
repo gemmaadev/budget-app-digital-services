@@ -1,6 +1,3 @@
-// Maquetar els dos selectors: "Nombre de pàgines" i "Nombre d'idiomes"
-// Afegir botons + i - a cada selector
-// Afegir icona ⓘ amb tooltip explicatiu del cost
 import { Info } from "lucide-react";
 import { useState } from "react";
 
@@ -17,8 +14,9 @@ export function WebConfigurator({
   onPagesChange,
   onLanguagesChange,
 }: WebConfiguratorProps) {
-  const [isPagesModalOpen, setIsPagesModalOpen] = useState(false);
-  const [isLanguagesModalOpen, setIsLanguagesModalOpen] = useState(false);
+  const [openModal, setOpenModal] = useState<"pages" | "languages" | null>(
+    null,
+  );
 
   return (
     <div className="flex flex-col gap-2 pt-6">
@@ -26,12 +24,12 @@ export function WebConfigurator({
         <div className="relative">
           <Info
             className="w-4 h-4 cursor-help"
-            onClick={() => setIsPagesModalOpen(!isPagesModalOpen)}
+            onClick={() => setOpenModal("pages")}
           />
-          {isPagesModalOpen && (
+          {openModal === "pages" && (
             <div
               className="fixed inset-0 bg-black/40 z-20 flex items-center justify-center"
-              onClick={() => setIsPagesModalOpen(false)}
+              onClick={() => setOpenModal(null)}
             >
               <div
                 className="bg-white rounded-2xl shadow-xl p-10 w-80 md:p-20 md:w-120 text-center"
@@ -71,12 +69,12 @@ export function WebConfigurator({
       <div className="flex items-center justify-end gap-3">
         <Info
           className="w-4 h-4 cursor-help"
-          onClick={() => setIsLanguagesModalOpen(!isLanguagesModalOpen)}
+          onClick={() => setOpenModal("languages")}
         />
-        {isLanguagesModalOpen && (
+        {openModal === "languages" && (
           <div
             className="fixed inset-0 bg-black/40 z-20 flex items-center justify-center"
-            onClick={() => setIsLanguagesModalOpen(false)}
+            onClick={() => setOpenModal(null)}
           >
             <div
               className="bg-white rounded-2xl shadow-xl p-10 w-80 md:p-20 md:w-120 text-center"
@@ -96,7 +94,7 @@ export function WebConfigurator({
         <div className="flex items-center border border-gray-200 rounded-lg overflow-hidden">
           <button
             type="button"
-            onClick={() => onLanguagesChange(Math.max(1, languages - 1))} //tria el valor més gran entre 1 i languages-1
+            onClick={() => onLanguagesChange(Math.max(1, languages - 1))}
             className="px-3 py-1"
           >
             -

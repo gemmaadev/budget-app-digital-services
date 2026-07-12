@@ -12,7 +12,7 @@ export function BudgetDetailActivity({ createdAt }: BudgetDetailActivityProps) {
           <div className="flex items-start gap-3">
             <span className="w-3 h-3 rounded-full bg-brand-green mt-1 shrink-0" />
             <div>
-              <p className="font-bold text-sm item">Pressupost creat</p>
+              <p className="font-bold text-sm">Pressupost creat</p>
               <p className="text-sm text-gray-500">{formattedDate}</p>
             </div>
           </div>

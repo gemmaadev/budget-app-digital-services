@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { ClientData } from "@/shared/types/budget";
+import type { ClientData } from "@/shared/types";
 import { FormField } from "./FormField";
 
 interface ClientFormProps {
@@ -50,9 +50,9 @@ export function ClientForm({ onSubmit }: ClientFormProps) {
           error="Camp obligatori"
           showError={touched.name && formData.name.trim() === ""}
           onChange={(event) =>
-            setFormData({ ...formData, name: event.target.value })
+            setFormData((prev) => ({ ...prev, name: event.target.value }))
           }
-          onBlur={() => setTouched({ ...touched, name: true })}
+          onBlur={() => setTouched((prev) => ({ ...prev, name: true }))}
         />
         <FormField
           id="phone"
@@ -63,9 +63,9 @@ export function ClientForm({ onSubmit }: ClientFormProps) {
           error="Introdueix un telèfon vàlid"
           showError={touched.phone && !isPhoneValid}
           onChange={(event) =>
-            setFormData({ ...formData, phone: event.target.value })
+            setFormData((prev) => ({ ...prev, phone: event.target.value }))
           }
-          onBlur={() => setTouched({ ...touched, phone: true })}
+          onBlur={() => setTouched((prev) => ({ ...prev, phone: true }))}
         />
         <FormField
           id="email"
@@ -76,9 +76,9 @@ export function ClientForm({ onSubmit }: ClientFormProps) {
           error="Introdueix un email vàlid"
           showError={touched.email && !isEmailValid}
           onChange={(event) =>
-            setFormData({ ...formData, email: event.target.value })
+            setFormData((prev) => ({ ...prev, email: event.target.value }))
           }
-          onBlur={() => setTouched({ ...touched, email: true })}
+          onBlur={() => setTouched((prev) => ({ ...prev, email: true }))}
         />
         <button
           type="submit"
