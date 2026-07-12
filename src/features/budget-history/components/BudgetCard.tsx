@@ -26,7 +26,7 @@ export function BudgetCard({ budget, showLink = true }: BudgetCardProps) {
               <li key={service}>
                 •
                 {service === "web" && budget.webConfig
-                  ? `Web (${budget.webConfig.pages} pàgines, ${budget.webConfig.languages} llenguatges)`
+                  ? `web (${budget.webConfig.pages} pàgines, ${budget.webConfig.languages} llenguatges)`
                   : service}
               </li>
             ))}
